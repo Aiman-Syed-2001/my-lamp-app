@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/Aiman-Syed-2001/my-lamp-app.git'
+                git branch: 'main', url: 'https://github.com/Aiman-Syed-2001/my-lamp-app.git'
             }
         }
 
