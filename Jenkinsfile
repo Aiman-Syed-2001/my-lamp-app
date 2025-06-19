@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/YourUsername/your-repo-name.git'
+                git 'https://github.com/Aiman-Syed-2001/my-lamp-app.git'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'tests/report.html', allowEmptyArchive: true
-            mail to: 'collaborator@example.com',
+            mail to: 'usmanghanisp22bcs008@gmail.com',
                  subject: "Test Results - Jenkins Build",
                  body: "The test job has completed. Please check the attached report.",
                  attachLog: true
