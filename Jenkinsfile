@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_COMPOSE_FILE = 'docker-compose.test.yml'
+        DEPLOYMENT_URL = 'http://13.60.215.94'
     }
 
     stages {
@@ -22,6 +23,14 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'tests/report.html', allowEmptyArchive: true
+        }
+        
+        success {
+            echo "✅ Deployment is live at: $DEPLOYMENT_URL"
+        }
+
+        failure {
+            echo "❌ Build failed. Please check the logs and test report."
         }
     }
 }
